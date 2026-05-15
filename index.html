@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap');
+:root{
+  --orange:#F06B04;
+  --yellow:#FBB728;
+  --cream:#F5ECD2;
+  --blue1:#2C9FC7;
+  --blue2:#1570AC;
+  --red:#A1091E;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:#1a1a1a}
+nav{background:#1a1a1a;padding:12px 32px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;left:0;width:100%;z-index:999}
+.logo{color:var(--yellow);font-family:'Playfair Display',serif;font-size:16px;font-weight:700;letter-spacing:1px}
+nav ul{list-style:none;display:flex;gap:20px}
+nav a{color:var(--cream);text-decoration:none;font-size:13px}
+nav a:hover{color:var(--yellow)}
+.cta{background:var(--yellow);color:#1a1a1a;border:none;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+.hero{background:var(--blue2);padding:44px 40px 38px;padding-top:90px;position:relative;overflow:hidden}
+.hero-eye{font-size:10px;color:var(--yellow);letter-spacing:4px;margin-bottom:10px;text-transform:uppercase}
+.hero-name{font-family:'Playfair Display',serif;font-size:68px;font-weight:900;color:var(--cream);line-height:.95;letter-spacing:-2px;opacity:0;transform:translateY(28px);animation:up .7s .1s forwards}
+.hero-name span{color:var(--yellow)}
+.hero-sub{font-size:13px;color:rgba(245,236,210,.6);margin-top:12px;letter-spacing:1px;opacity:0;animation:up .7s .3s forwards}
+.hero-pill{display:inline-block;background:var(--orange);color:#fff;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-top:12px;opacity:0;animation:up .7s .5s forwards}
+.scroll-hint{display:inline-block;margin-top:22px;background:var(--yellow);color:#1a1a1a;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:700;opacity:0;animation:up .7s .7s forwards,bob 2s 1.4s infinite}
+.ghost{position:absolute;bottom:-8px;right:-8px;font-family:'Playfair Display',serif;font-size:100px;font-weight:900;color:rgba(255,255,255,.05);pointer-events:none;line-height:1}
+@keyframes up{to{opacity:1;transform:translateY(0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+.about{background:var(--cream);padding:36px 40px}
+.sec-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+.sec-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;line-height:1.05;margin-bottom:16px}
+.about .sec-label{color:var(--orange)}
+.about .sec-title{color:#1a1a1a}
+.bio{font-size:14px;color:#555;line-height:1.75;margin-bottom:16px;max-width:500px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.acard{background:var(--blue2);border-radius:10px;padding:18px}
+.acard h3{color:var(--yellow);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.acard p{color:rgba(245,236,210,.8);font-size:13px;line-height:1.7}
+.tag{display:inline-block;background:var(--yellow);color:#1a1a1a;border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;margin:3px 3px 0 0}
+
+.exp-sec{background:#1a1a1a;padding:36px 40px}
+.exp-sec .sec-label{color:var(--yellow)}
+.exp-sec .sec-title{color:var(--cream)}
+.eitem{display:grid;grid-template-columns:80px 12px 1fr;align-items:start;gap:0 12px;padding:14px 0;border-bottom:1px solid rgba(245,236,210,.08);opacity:0;transform:translateX(-14px);transition:.4s}
+.eitem.vis{opacity:1;transform:translateX(0)}
+.eyear{color:var(--yellow);font-size:12px;font-weight:700;text-align:right;padding-top:2px}
+.edot{width:8px;height:8px;background:var(--orange);border-radius:50%;margin-top:5px}
+.ebody h4{color:var(--cream);font-size:15px;font-family:'Playfair Display',serif;margin-bottom:3px}
+.ebody p{color:#777;font-size:12px;line-height:1.6}
+
+.ach-sec{background:var(--orange);padding:36px 40px}
+.ach-sec .sec-label{color:#1a1a1a}
+.ach-sec .sec-title{color:#1a1a1a}
+.ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.achcard{background:#1a1a1a;border-radius:10px;padding:18px;opacity:0;transform:translateY(12px);transition:.4s}
+.achcard.vis{opacity:1;transform:translateY(0)}
+.achcard .ico{font-size:20px;margin-bottom:8px}
+.achcard h4{color:var(--yellow);font-family:'Playfair Display',serif;font-size:14px;margin-bottom:5px}
+.achcard p{color:#999;font-size:12px;line-height:1.6}
+.achcard.alt{background:var(--red)}
+.achcard.alt h4{color:var(--yellow)}
+.achcard.alt p{color:rgba(245,236,210,.75)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">✦ Portfolio</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#exp">Experience</a></li>
+    <li><a href="#ach">Achievements</a></li>
+    <li><button class="cta">Contact!</button></li>
+  </ul>
+</nav>
+
+<div class="hero" id="home">
+  <div class="hero-eye">✦ Student Portfolio</div>
+  <div class="hero-name">YOUR<br><span>NAME</span></div>
+  <div class="hero-sub">Creative · Achiever · Visionary</div><br>
+  <div class="hero-pill">SMA Class of 2026</div><br>
+  <div class="scroll-hint">Scroll down ↓</div>
+  <div class="ghost">PORTFOLIO</div>
+</div>
+
+<div class="about" id="about">
+  <div class="sec-label">Who I Am</div>
+  <div class="sec-title">Hello,<br>I'm [Name]!</div>
+  <p class="bio">Saya siswa SMA yang passionate di bidang [minat kamu]. Saya percaya setiap pengalaman adalah peluang untuk tumbuh dan menciptakan sesuatu yang bermakna.</p>
+  <div class="about-grid">
+    <div class="acard">
+      <h3>Quick Info</h3>
+      <p>Born: [Tanggal]<br>School: [Nama SMA]<br>Location: [Kota]<br>Class: [Jurusan]</p>
+    </div>
+    <div class="acard">
+      <h3>Skills</h3>
+      <div style="margin-top:6px">
+        <span class="tag">Design</span><span class="tag">Writing</span>
+        <span class="tag">Coding</span><span class="tag">Speaking</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="exp-sec" id="exp">
+  <div class="sec-label">What I've Done</div>
+  <div class="sec-title">Experience</div>
+  <div>
+    <div class="eitem">
+      <span class="eyear">2024</span>
+      <div class="edot"></div>
+      <div class="ebody"><h4>OSIS Secretary</h4><p>Mengorganisir kegiatan & acara tahunan sekolah bersama tim OSIS.</p></div>
+    </div>
+    <div class="eitem">
+      <span class="eyear">2023</span>
+      <div class="edot"></div>
+      <div class="ebody"><h4>School Magazine Editor</h4><p>Menulis & mengedit konten majalah sekolah edisi tahunan.</p></div>
+    </div>
+    <div class="eitem">
+      <span class="eyear">2022</span>
+      <div class="edot"></div>
+      <div class="ebody"><h4>Volunteer Teaching</h4><p>Mengajar anak-anak SD di komunitas lokal setiap akhir pekan.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="ach-sec" id="ach">
+  <div class="sec-label">My Wins</div>
+  <div class="sec-title">Achievements</div>
+  <div class="ach-grid">
+    <div class="achcard">
+      <div class="ico">🥇</div>
+      <h4>1st Place — Science Olympiad</h4>
+      <p>Juara 1 tingkat Kota pada Olimpiade Sains Nasional bidang Biologi, 2024.</p>
+    </div>
+    <div class="achcard alt">
+      <div class="ico">🏆</div>
+      <h4>Best Essay — National</h4>
+      <p>Tulisan terbaik pada lomba esai nasional yang diikuti 500+ peserta.</p>
+    </div>
+    <div class="achcard alt">
+      <div class="ico">🎤</div>
+      <h4>Debate Champion</h4>
+      <p>Juara 2 debat bahasa Inggris tingkat Provinsi bersama tim sekolah.</p>
+    </div>
+    <div class="achcard">
+      <div class="ico">🎨</div>
+      <h4>Art Exhibition</h4>
+      <p>Karya seni ditampilkan di pameran seni kota bersama 30 seniman muda.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => {
+  if (x.isIntersecting) x.target.classList.add('vis');
+}), { threshold: .15 });
+document.querySelectorAll('.eitem, .achcard').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
